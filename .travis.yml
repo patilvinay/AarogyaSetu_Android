@@ -12,13 +12,13 @@ env:
 # Run assemble and unit tests
 script:
   - echo $KEYSTOREPROPERTIES > keystore.properties
-  - echo $KEYSTORE | base64 -d > /app/ngx-release-key.keystore
+  - echo $KEYSTORE | base64 -d > app/ngx-release-key.keystore
   - mkdir app/src/debug
   - mkdir app/src/release
-  - echo $GSERVICE_DEBUG > /app/src/debug/google-services.json
-  - echo GSERVICE_RELEASE > /app/src/release/google-services.json
-  - ./gradlew clean :app:clean :app:assembleDebug testDebug :app:assembleRelease
+  - echo $GSERVICE_DEBUG > app/src/debug/google-services.json
+  - echo GSERVICE_RELEASE > app/src/release/google-services.json
+  - ./gradlew clean clean assembleDebug testDebug assembleRelease
   - rm -f keystore.properties
-  - rm -f /app/ngx-release-key.keystore
-  - rm -rf /app/src/debug
-  - rm -rf /app/src/release
+  - rm -f app/ngx-release-key.keystore
+  - rm -rf app/src/debug
+  - rm -rf app/src/release
