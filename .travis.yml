@@ -17,6 +17,10 @@ script:
   - mkdir app/src/release
   - echo $GSERVICE_DEBUG > app/src/debug/google-services.json
   - echo GSERVICE_RELEASE > app/src/release/google-services.json
+  - ls
+  - ls app
+  - ls app/src/debug
+  - ls app/src/release
   - ./gradlew clean clean assembleDebug testDebug assembleRelease
   - rm -f keystore.properties
   - rm -f app/ngx-release-key.keystore
