@@ -1,8 +1,8 @@
 language: android
 android:
   components:
-    - android-28
-    - build-tools-27.0.3
+    - android-29
+    - build-tools-29.0.3
 
 env:
   global:
@@ -19,7 +19,9 @@ script:
   - echo $GSERVICE_RELEASE  > app/src/release/google-services.json
   - export GRADLE_USER_HOME=$(pwd)/.gradle
   - chmod +x ./gradlew
-  - ./gradlew clean assembleDebug testDebug assembleRelease
+  #- ./gradlew clean assembleDebug testDebug assembleRelease
+  - ./gradlew clean --info
+  -	./gradlew assembleRelease --info
   - rm -f keystore.properties
   - rm -f app/ngx-release-key.keystore
   - rm -rf app/src/debug
