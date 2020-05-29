@@ -39,6 +39,10 @@ android {
 				println "file present => release"
 			def readdata = keystoreProperties['key_store_cetificate']
 			println "keystore : ${readdata}" 
+			
+			println "alias: ${keystoreProperties['key_alias']}"
+			println "verify_app_url: ${keystoreProperties['verify_app_url']}"
+			
             storeFile file(keystoreProperties['key_store_cetificate'])
             storePassword keystoreProperties['key_store_password']
             keyAlias keystoreProperties['key_alias']
