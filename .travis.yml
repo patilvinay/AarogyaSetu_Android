@@ -21,7 +21,7 @@ script:
   - chmod +x ./gradlew
   #- ./gradlew clean assembleDebug testDebug assembleRelease
   - ./gradlew clean --info
-  -	./gradlew assembleRelease --info
+  - ./gradlew assembleRelease --info
   - rm -f keystore.properties
   - rm -f app/ngx-release-key.keystore
   - rm -rf app/src/debug
