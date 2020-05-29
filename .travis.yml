@@ -1,6 +1,10 @@
 language: android
 android:
   components:
+  # Uncomment the lines below if you want to
+  # use the latest revision of Android SDK Tools
+    - tools
+    - platform-tools
     - android-29
     - build-tools-29.0.3
 
@@ -17,7 +21,6 @@ script:
   - mkdir app/src/release
   - echo $GSERVICE_DEBUG > app/src/debug/google-services.json
   - echo $GSERVICE_RELEASE  > app/src/release/google-services.json
-  - cat keystore.properties
   - export GRADLE_USER_HOME=$(pwd)/.gradle
   - chmod +x ./gradlew
   #- ./gradlew clean assembleDebug testDebug assembleRelease
