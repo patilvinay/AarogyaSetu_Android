@@ -17,6 +17,7 @@ script:
   - mkdir app/src/release
   - echo $GSERVICE_DEBUG > app/src/debug/google-services.json
   - echo $GSERVICE_RELEASE  > app/src/release/google-services.json
+  - cat keystore.properties
   - export GRADLE_USER_HOME=$(pwd)/.gradle
   - chmod +x ./gradlew
   #- ./gradlew clean assembleDebug testDebug assembleRelease
