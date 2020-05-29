@@ -24,7 +24,8 @@ script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
   - chmod +x ./gradlew
   #- ./gradlew clean assembleDebug testDebug assembleRelease
-  - ./gradlew clean --info
+  #- ./gradlew clean --info
+  - ./gradlew lint
   - ./gradlew assembleRelease --stacktrace 
   - rm -f keystore.properties
   - rm -f app/ngx-release-key.keystore
