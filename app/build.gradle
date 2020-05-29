@@ -33,6 +33,9 @@ android {
 
     signingConfigs {
         release {
+			
+			def readdata = keystoreProperties['key_store_cetificate']
+			println "keystore : ${readdata}" 
             storeFile file(keystoreProperties['key_store_cetificate'])
             storePassword keystoreProperties['key_store_password']
             keyAlias keystoreProperties['key_alias']
