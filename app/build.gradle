@@ -11,6 +11,7 @@ def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
+println "keystorePropertiesFile: ${keystorePropertiesFile}"
 println "all: ${keystoreProperties}"
 //if(keystorePropertiesFile.exists())
 	//			println "file present => all"
