@@ -1,4 +1,4 @@
-language: java
+language: android
 dist: trusty
 jdk: oraclejdk8
 android:
@@ -9,6 +9,8 @@ android:
     - platform-tools
     - android-29
     - build-tools-29.0.3
+    - addon
+    - extra
 
 env:
   global:
@@ -29,7 +31,7 @@ script:
   #- export GRADLE_USER_HOME=$(pwd)/.gradle
   #- chmod +x ./gradlew
   #- ./gradlew clean assembleDebug testDebug assembleRelease
-  - ./gradlew clean --info 
+  - ./gradlew build --info 
   - ./gradlew assembleRelease --stacktrace 
   - rm -f keystore.properties
   - rm -f app/ngx-release-key.keystore
