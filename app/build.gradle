@@ -11,7 +11,7 @@ def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
 
 try{
-def fileInputStream = new new FileInputStream(keystorePropertiesFile)
+def fileInputStream = new FileInputStream(keystorePropertiesFile)
 //keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 keystoreProperties.load(new FileInputStream(fileInputStream))
 }catch(Exception e)
