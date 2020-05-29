@@ -1,4 +1,5 @@
 language: android
+dist: trusty
 android:
   components:
   # Uncomment the lines below if you want to
@@ -24,8 +25,7 @@ script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
   - chmod +x ./gradlew
   #- ./gradlew clean assembleDebug testDebug assembleRelease
-  #- ./gradlew clean --info
-  - ./gradlew lint
+  - ./gradlew clean --info 
   - ./gradlew assembleRelease --stacktrace 
   - rm -f keystore.properties
   - rm -f app/ngx-release-key.keystore
