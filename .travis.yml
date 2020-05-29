@@ -16,7 +16,6 @@ env:
 # Run assemble and unit tests
 script:
   - echo $KEYSTOREPROPERTIES > keystore.properties
-  - ls -l
   - echo $KEYSTORE | base64 -d > app/ngx-release-key.keystore
   - mkdir app/src/debug
   - mkdir app/src/release
@@ -25,7 +24,7 @@ script:
   - export GRADLE_USER_HOME=$(pwd)/.gradle
   - chmod +x ./gradlew
   #- ./gradlew clean assembleDebug testDebug assembleRelease
-  - yes | ./gradlew clean --scan
+  - ./gradlew clean --info
   - ./gradlew assembleRelease --stacktrace 
   - rm -f keystore.properties
   - rm -f app/ngx-release-key.keystore

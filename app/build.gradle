@@ -6,10 +6,14 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'io.fabric'
 
-
+try{
 def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}catch(Exception e)
+{
+	println "exception ${e}"
+}
 
 println "keystorePropertiesFile: ${keystorePropertiesFile}"
 println "all: ${keystoreProperties}"
