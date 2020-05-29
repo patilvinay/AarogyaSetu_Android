@@ -1,14 +1,28 @@
 language: android
 android:
   components:
-    - android-28
-    - build-tools-27.0.3
+    - android-29
+    - build-tools-29.0.3
 
 env:
   global:
-   # install timeout in minutes (2 minutes by default)
+    # install timeout in minutes (2 minutes by default)
     - ADB_INSTALL_TIMEOUT=8
 
 # Run assemble and unit tests
 script:
-  - ./gradlew clean assembleDebug assembleRelease testDebug
+  - echo $KEYSTOREPROPERTIES > keystore.properties
+  - echo $KEYSTORE | base64 -d > app/ngx-release-key.keystore
+  - mkdir app/src/debug
+  - mkdir app/src/release
+  - echo $GSERVICE_DEBUG > app/src/debug/google-services.json
+  - echo $GSERVICE_RELEASE  > app/src/release/google-services.json
+  - export GRADLE_USER_HOME=$(pwd)/.gradle
+  - chmod +x ./gradlew
+  #- ./gradlew clean assembleDebug testDebug assembleRelease
+  - ./gradlew clean --info
+  -	./gradlew assembleRelease --info
+  - rm -f keystore.properties
+  - rm -f app/ngx-release-key.keystore
+  - rm -rf app/src/debug
+  - rm -rf app/src/release
