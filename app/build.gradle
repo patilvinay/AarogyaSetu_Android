@@ -11,10 +11,10 @@ def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
-
-if(keystorePropertiesFile.exists())
-				println "file present => all"
-println "alias: ${keystoreProperties['key_alias']}"
+println "all: ${keystoreProperties}"
+//if(keystorePropertiesFile.exists())
+	//			println "file present => all"
+//println "alias: ${keystoreProperties['key_alias']}"
 ext {
     sslPublicKey = keystoreProperties['ssl_public_key']
     sslBackupKey = keystoreProperties['ssl_backup_key']
