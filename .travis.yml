@@ -16,15 +16,18 @@ env:
     - ADB_INSTALL_TIMEOUT=8
 
 # Run assemble and unit tests
-script:
+
+before_script:
   - echo $KEYSTOREPROPERTIES > keystore.properties
   - echo $KEYSTORE | base64 -d > app/ngx-release-key.keystore
   - mkdir app/src/debug
   - mkdir app/src/release
   - echo $GSERVICE_DEBUG > app/src/debug/google-services.json
   - echo $GSERVICE_RELEASE  > app/src/release/google-services.json
-  - export GRADLE_USER_HOME=$(pwd)/.gradle
-  - chmod +x ./gradlew
+
+script:
+  #- export GRADLE_USER_HOME=$(pwd)/.gradle
+  #- chmod +x ./gradlew
   #- ./gradlew clean assembleDebug testDebug assembleRelease
   - ./gradlew clean --info 
   - ./gradlew assembleRelease --stacktrace 
