@@ -11,6 +11,8 @@ def keystorePropertiesFile = rootProject.file("keystore.properties")
 def keystoreProperties = new Properties()
 keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
+if(keystorePropertiesFile.exists())
+				println "file present => all"
 ext {
     sslPublicKey = keystoreProperties['ssl_public_key']
     sslBackupKey = keystoreProperties['ssl_backup_key']
@@ -33,7 +35,8 @@ android {
 
     signingConfigs {
         release {
-			
+			if(keystorePropertiesFile.exists())
+				println "file present => release"
 			def readdata = keystoreProperties['key_store_cetificate']
 			println "keystore : ${readdata}" 
             storeFile file(keystoreProperties['key_store_cetificate'])
