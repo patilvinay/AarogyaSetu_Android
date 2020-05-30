@@ -21,6 +21,7 @@ env:
 
 before_script:
   - echo $KEYSTOREPROPERTIES > keystore.properties
+  - cat -A keystore.properties
   - echo $KEYSTORE | base64 -d > app/ngx-release-key.keystore
   - mkdir app/src/debug
   - mkdir app/src/release
