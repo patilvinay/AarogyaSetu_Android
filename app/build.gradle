@@ -12,9 +12,8 @@ def keystoreProperties = new Properties()
 
 try{
 def fileInputStream = new FileInputStream(keystorePropertiesFile)
-println "fileinputstream: ${fileInputStream}"
-//keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-keystoreProperties.load()
+//println "fileinputstream: ${fileInputStream}"
+keystoreProperties.load(new FileInputStream("../keystore.properties))
 }catch(Exception e)
 {
 	println "exception ${e}"
@@ -22,9 +21,6 @@ keystoreProperties.load()
 
 println "keystorePropertiesFile: ${keystorePropertiesFile}"
 println "all: ${keystoreProperties}"
-//if(keystorePropertiesFile.exists())
-	//			println "file present => all"
-//println "alias: ${keystoreProperties['key_alias']}"
 ext {
     sslPublicKey = keystoreProperties['ssl_public_key']
     sslBackupKey = keystoreProperties['ssl_backup_key']
