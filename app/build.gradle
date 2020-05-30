@@ -14,7 +14,7 @@ try{
 def fileInputStream = new FileInputStream(keystorePropertiesFile)
 println "fileinputstream: ${fileInputStream}"
 //keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-keystoreProperties.load(fileInputStream)
+keystoreProperties.load()
 }catch(Exception e)
 {
 	println "exception ${e}"
