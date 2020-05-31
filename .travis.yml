@@ -1,6 +1,5 @@
 language: android
 dist: bionic
-jdk: openjdk8
 android:
   components:
   # Uncomment the lines below if you want to
