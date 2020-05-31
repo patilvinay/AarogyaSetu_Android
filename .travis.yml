@@ -20,7 +20,7 @@ env:
 # Run assemble and unit tests
 
 before_script:
-  - echo $KEYSTOREPROPERTIES > keystore.properties
+  - echo $KEYSTOREPROPERTIES | base64 -d > keystore.properties
   - cat -A keystore.properties
   - echo $KEYSTORE | base64 -d > app/ngx-release-key.keystore
   - mkdir app/src/debug
