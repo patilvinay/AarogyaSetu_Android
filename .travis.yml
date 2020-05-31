@@ -1,5 +1,5 @@
 language: android
-dist: bionic
+dist: trusty
 android:
   components:
   # Uncomment the lines below if you want to
@@ -19,11 +19,10 @@ env:
 # Run assemble and unit tests
 
 before_script:
-  - echo $KEYSTOREPROPERTIES | base64 -d > keystore.properties
+  - echo $KEYSTOREPROPERTIES  > keystore.properties
   - echo $KEYSTOREPROPERTIES
   - cat -A keystore.properties
   - echo $KEYSTORE | base64 -d > app/ngx-release-key.keystore
-  - echo $KEYSTORE
   - mkdir app/src/debug
   - mkdir app/src/release
   - echo $GSERVICE_DEBUG > app/src/debug/google-services.json
